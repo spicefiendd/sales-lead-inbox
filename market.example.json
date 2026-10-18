@@ -1,0 +1,38 @@
+{
+  "_comment": "Copy to market.local.json (gitignored) or point LOCAL_NEWS_MARKET_CONFIG at your copy. geo_terms and extra_signal_terms are regex fragments.",
+  "market_id": "00000",
+  "label": "Exampletown / Example County",
+  "geo_terms": [
+    "exampletown",
+    "example\\s*county",
+    "nearbyville"
+  ],
+  "geo_fallback": "exampletown|example county",
+  "extra_signal_terms": [],
+  "sources": [
+    {
+      "name": "localpaper",
+      "type": "wp-json",
+      "url": "https://news.example.com"
+    },
+    {
+      "name": "edc",
+      "type": "rss",
+      "url": "https://edc.example.org/feed/",
+      "min_days": 180
+    },
+    {
+      "name": "dailypaper",
+      "type": "html-links",
+      "url": "https://daily.example.com/",
+      "link_regex": "href=\"(/stories/[^\"#?]+)\"",
+      "link_base": "https://daily.example.com"
+    },
+    {
+      "name": "chamber",
+      "type": "html-calendar",
+      "url": "https://chamber.example.org/events",
+      "detail_prefix": "https://chamber.example.org/events/Details/"
+    }
+  ]
+}
